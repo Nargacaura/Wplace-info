@@ -21,7 +21,8 @@ export type BackendInfo = {
 	discordId?: string;
 	droplets: number;
 	equippedFlag?: number;
-	experiments: Record<string, any>;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	experiments?: Record<string, any>;
 	extraColorsBitmap: number;
 	favoriteLocations: Array<{
 		id: number;
@@ -53,8 +54,39 @@ export const didFailFetching: Writable<boolean> = writable(true);
  * @returns The parsed `BackendInfo` object.
  * @throws Will throw an error if the JSON is invalid or does not conform to the `BackendInfo` type.
  */
-export function parseBackendInfo(json: string): BackendInfo {
-	return JSON.parse(json) as BackendInfo;
+export function parseBackendInfo(json: string): BackendInfo | null {
+	try {
+		const data = JSON.parse(json) as BackendInfo;
+
+		if (typeof data !== 'object' || data === null)
+			throw new Error('Invalid backend info format');
+
+		if (
+			typeof data.banned !== 'boolean' ||
+			typeof data.charges !== 'object' ||
+			typeof data.charges.cooldownMs !== 'number' ||
+			typeof data.charges.count !== 'number' ||
+			typeof data.charges.max !== 'number' ||
+			typeof data.droplets !== 'number' ||
+			typeof data.extraColorsBitmap !== 'number' ||
+			!Array.isArray(data.favoriteLocations) ||
+			typeof data.flagsBitmap !== 'string' ||
+			typeof data.id !== 'number' ||
+			typeof data.isCustomer !== 'boolean' ||
+			typeof data.level !== 'number' ||
+			typeof data.maxFavoriteLocations !== 'number' ||
+			typeof data.name !== 'string' ||
+			typeof data.needsPhoneVerification !== 'boolean' ||
+			typeof data.pixelsPainted !== 'number' ||
+			typeof data.showLastPixel !== 'boolean' ||
+			typeof data.timeoutUntil !== 'string'
+		) throw new Error('Incomplete backend info data');
+
+		return data;
+	} catch (e) {
+		console.error('Failed to parse backend info:', e);
+		return null;
+	}
 }
 
 /**
@@ -127,6 +159,10 @@ export async function readTextInput(): Promise<void> {
 			const json = inputElement.value;
 			loadingBackendInfo.set(true);
 			const info = parseBackendInfo(json);
+
+			if (!info)
+				throw new Error('Invalid backend info');
+
 			setBackendInfo(info);
 			didFailFetching.set(false);
 		} catch (e) {
