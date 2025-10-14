@@ -20,18 +20,18 @@
 
 <Toaster position="top-right" />
 
-<div class="mx-auto flex h-screen w-[97%] flex-col items-center justify-center">
+<div class="mx-auto flex min-h-screen w-[97%] flex-col gap-4 items-center justify-center p-4">
 	{#if $loadingBackendInfo}
 		<div class="h-32 w-32 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 	{:else}
 		{#if $didFailFetching}
-			<h1 class="my-8 flex items-center text-3xl font-bold">
+			<h1 class="my-8 flex items-center text-3xl font-bold text-center">
 				🐴 {$_('fetch.title')}
 			</h1>
-			<p class="mb-4 text-lg">{$_('fetch.description')}</p>
+			<p class="text-lg">{$_('fetch.description')}</p>
 
 			<a
-				class="mb-4 inline-block rounded bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600"
+				class="inline-block rounded bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600"
 				href="https://wplace.live/"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -40,10 +40,10 @@
 			</a>
 			<br />
 
-			{$_('errors.upload-json-manually')}
+			<p class="text-base">{$_('errors.upload-json-manually')}</p>
 			<textarea
 				id="jsonInput"
-				class="my-4 h-40 w-[90%] rounded border border-gray-300 p-2"
+				class="h-40 w-[90%] rounded border border-gray-300 p-2"
 				placeholder={$_('placeholders.json-input')}
 				onkeydown={(e) => {
 					// Allowed keys: Delete, Backspace, Tab, Ctrl+A, Ctrl+X, Ctrl+C, Ctrl+V
@@ -99,7 +99,7 @@
 
 		<footer class="bottom-0 mx-auto mt-auto mb-4 w-[90%] rounded-lg bg-gray-100 p-4 text-center">
 			<!-- Disclaimer of non-affiliation -->
-			<p class="my-4 text-center text-xl text-red-500">
+			<p class="text-center text-xl text-red-500">
 				⚠️ {$_('footer.disclaimer')}
 
 				<a
@@ -113,7 +113,7 @@
 				🐴
 			</p>
 
-			<p class="mb-4 text-center text-gray-600">
+			<p class="mt-4 text-center text-gray-600">
 				{$_('available-in.beginning')}
 				<Fr
 					class="inline h-6 w-6 cursor-pointer"
@@ -128,7 +128,7 @@
 				/>. {$_('available-in.ending')}
 
 				<!-- Author -->
-				<small class="text-md mb-4 block text-center text-gray-400">
+				<small class="text-md block text-center text-gray-400">
 					{$_('footer.made-with')} ❤️ & 🐴🐴 {$_('footer.in-svelte')}
 					{$_('footer.created-by')}
 					<a
