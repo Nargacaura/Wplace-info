@@ -16,9 +16,11 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+      - name: Set yarn to latest stable version
+        run: yarn set version stable
 
       - name: Install dependencies
-        run: yarn i
+        run: yarn install
 
       - name: build
         env:
