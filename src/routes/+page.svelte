@@ -20,7 +20,7 @@
 
 <Toaster position="top-right" />
 
-<div class="flex h-screen flex-col items-center justify-center">
+<div class="flex h-screen flex-col items-center justify-center w-[97%] mx-auto">
 	{#if $loadingBackendInfo}
 		<div class="h-32 w-32 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 	{:else}
