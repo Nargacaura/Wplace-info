@@ -44,7 +44,7 @@ export type BackendInfo = {
 };
 
 export const backendInfo: Writable<BackendInfo | null> = writable(null);
-export const loadingBackendInfo: Writable<boolean> = writable(false);
+export const loadingBackendInfo: Writable<boolean> = writable(true);
 export const didFailFetching: Writable<boolean> = writable(true);
 
 /**

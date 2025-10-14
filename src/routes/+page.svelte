@@ -10,6 +10,12 @@
 	import { _ } from 'svelte-i18n';
 	import { Fr, Gb } from 'svelte-flag-icons';
 	import { Toaster } from 'svelte-french-toast';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		await new Promise((resolve) => setTimeout(resolve, 500)); // Slight delay to ensure loading state is accurate
+		loadingBackendInfo.set(false);
+	});
 </script>
 
 <Toaster position="top-right" />
