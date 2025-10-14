@@ -1,9 +1,11 @@
 // place files you want to import through the `$lib` alias in this folder.
 
 import { writable, type Writable } from 'svelte/store';
-import * as testJson from '$lib/assets/_test_data.json'; // Ensure Vite includes this file in the build
 import { locale } from 'svelte-i18n';
 
+/**
+ * Info fetched from Wplace's backend about the current user.
+ */
 export type BackendInfo = {
 	allianceId?: number;
 	allianceRole?: string;
