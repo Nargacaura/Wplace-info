@@ -6,9 +6,6 @@
 	import { onMount } from 'svelte';
 	import { getLocalStorageLocale, loadBackendInfo, localSessionLocale, setLocalStorageLocale } from '$lib';
 
-	// Prerendering the layout to have the locale button available immediately
-	export const prerender = true;
-
 	let { children } = $props();
 
 	onMount(async (): Promise<void> => {
