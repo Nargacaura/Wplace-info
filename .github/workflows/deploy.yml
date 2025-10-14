@@ -16,7 +16,10 @@ jobs:
         with:
           node-version: 22
           cache: yarn
-      - name: Set yarn to latest stable version
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Use stable Yarn
         run: yarn set version stable
 
       - name: Install dependencies
