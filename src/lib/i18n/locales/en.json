@@ -1,0 +1,60 @@
+{
+  "errors": {
+    "fetch-failure": "Failed to fetch backend information. Please ensure you are logged in on Wplace.",
+    "no-suspension": "No recorded suspensions yet. Yippee! :D",
+    "fetch-failure-title": "Unable to fetch information from Wplace."
+  },
+  "loading": {
+    "loading-backend-info": "Loading backend information..."
+  },
+  "buttons": {
+    "retry": "Retry",
+    "login": "Login to Wplace",
+    "change-language": "Change language (FR ⇋ EN)"
+  },
+  "footer": {
+    "disclaimer": "This site is not affiliated with Wplace whatsoever. Its sole purpose is to have a readable version of the JSON that can be found in the backend.",
+    "made-with": "Coded with",
+    "in-svelte": "in Svelte",
+    "created-by": "by"
+  },
+  "data": {
+    "picture": "{name}'s profile picture",
+    "title": "{name}'s Wplace info",
+    "suspension-reason": {
+      "inappropriate-content": "inappropriate content (adult content, inappropriate link, highly suggestive content...)",
+      "hate-speech": "hate speech (racism, homophobia, promotion of a hate group...)",
+      "doxxing": "releasing one's private information (address, phone number...) without their consent",
+      "bot": "using illegal automation scripts",
+      "griefing": "messing up an artwork that wasn't griefable (such as a country/sexual orientation flag, a character from a media franchise...)",
+      "other": "a reason only the reporter and GMs know",
+      "unknown": "an unknown reason"
+    },
+    "last-suspension": "Last suspension",
+    "general-information": "General information",
+    "name": "Username and ID",
+    "discord": "Linked Discord account",
+    "level-and-droplets": "Level, pixels painted and droplets",
+    "level": "Current level",
+    "level-progress": "Progression to level {nextLevel}",
+    "droplets": "Droplets acquired",
+    "is-in-alliance": "Is part of an alliance?",
+    "pixels-placed": "Pixels painted",
+    "max-charges": "Maximum paintable pixels",
+    "cooldown": "Cooldown until max reached",
+    "favorites": "Favourite locations"
+  },
+  "account-status": {
+    "banned": "You have been banned from Wplace for {reason}.",
+    "suspended": "You {conjugateBeing} suspended until {until} for {reason}."
+  },
+  "conjugate-being": {
+    "past": "have been",
+    "present": "are"
+  },
+  "data_flag_equipped": "Has equipped a flag?",
+  "boolean": {
+    "yes": "Yes",
+    "no": "No"
+  }
+}

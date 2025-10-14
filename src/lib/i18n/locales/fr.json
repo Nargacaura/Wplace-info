@@ -1,0 +1,59 @@
+{
+  "errors": {
+    "fetch-failure": "Echec de la récupération des informations du backend. Veuillez vous assurer que vous êtes connecté sur Wplace.",
+    "no-suspension": "Aucune suspension enregistrée pour l’instant. Hourra! :D",
+    "fetch-failure-title": "Impossible de récupérer les informations de Wplace."
+  },
+  "loading": {
+    "loading-backend-info": "Chargement des informations du backend..."
+  },
+  "buttons": {
+    "retry": "Réessayer",
+    "login": "Se connecter à Wplace",
+    "change-language": "Changer de langue (FR ⇋ EN)"
+  },
+  "footer": {
+    "disclaimer": "Ce site n'est aucunement affilié à Wplace. Son seul objectif est de mettre en place une interface graphique pour rendre le backend plus lisible.",
+    "made-with": "Codé avec",
+    "in-svelte": "en Svelte",
+    "created-by": "par"
+  },
+  "data": {
+    "picture": "Avatar de {name}",
+    "title": "Informations de {name} sur Wplace",
+    "suspension-reason": {
+      "inappropriate-content": "contenu inapproprié (contenu adulte, lien inapproprié, contenu fortement suggestif...)",
+      "hate-speech": "discours de haine (racisme, homophobie, promotion d'un groupe haineux...)",
+      "doxxing": "divulgation d'informations privées (adresse, numéro de téléphone...) sans leur consentement",
+      "bot": "utilisation de scripts d'automatisation illégaux",
+      "griefing": "perturbation d'une œuvre qui n'était pas sujette à des actes de malveillance (comme un drapeau de pays/d'orientation sexuelle, un personnage d'une franchise médiatique...)",
+      "other": "une raison connue uniquement du rapporteur et des GMs",
+      "unknown": "une raison qui nous échappe"
+    },
+    "last-suspension": "Dernière suspension",
+    "general-information": "Informations générales",
+    "name": "Nom d'utilisateur et ID",
+    "discord": "Compte Discord lié",
+    "level-and-droplets": "Niveau, pixels placés et droplets",
+    "level": "Niveau actuel",
+    "level-progress": "Progression vers le niveau {nextLevel}",
+    "droplets": "Droplets possédés",
+    "is-in-alliance": "Fait partie d'une alliance?",
+    "pixels-placed": "Pixels placés",
+    "max-charges": "Maximum de pixels plaçables",
+    "cooldown": "Cooldown avant remplissage maximum",
+    "favorites": "Endroits favoris"
+  },
+  "account-status": {
+    "banned": "Vous êtes banni de Wplace pour {reason}.",
+    "suspended": "Vous {conjugateBeing} suspendu jusqu'au {until} pour {reason}."
+  },
+  "conjugate-being": {
+    "past": "avez été",
+    "present": "êtes"
+  },
+  "data_flag_equipped": "A équipé un drapeau?",
+  "boolean": {
+    "yes": "Oui"
+  }
+}
