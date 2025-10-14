@@ -2,9 +2,9 @@
 	import '../app.css';
 	import { browser } from '$app/environment';
 	import '$lib/i18n';
-	import { locale, waitLocale, _ } from 'svelte-i18n';
+	import { locale, waitLocale } from 'svelte-i18n';
 	import { onMount } from 'svelte';
-	import { localSessionLocale, setLocalStorageLocale } from '$lib';
+	import { localSessionLocale, setsessionStorageLocale } from '$lib';
 
 	let { children } = $props();
 
@@ -15,8 +15,7 @@
 				locale.set(window.navigator.language);
 			}
 			await waitLocale();
-
-			setLocalStorageLocale($locale as string, true);
+			setsessionStorageLocale($locale as string);
 		}
 	});
 </script>
@@ -24,7 +23,10 @@
 <svelte:head>
 	<link rel="icon" type="image/png" href="favicon_alt.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Wplace user information JSON-to-GUI tool" />
+	<meta
+		name="description"
+		content="A tool that permits parsing the user information taken from Wplace's backend for more readability."
+	/>
 	<meta name="author" content="Pagos (@Nargacaura)" />
 	<title>Wplace user information GUI</title>
 </svelte:head>

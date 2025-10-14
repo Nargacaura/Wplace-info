@@ -4,7 +4,7 @@
 		didFailFetching,
 		loadingBackendInfo,
 		readTextInput,
-		setLocalStorageLocale
+		setsessionStorageLocale
 	} from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
 	import { _ } from 'svelte-i18n';
@@ -20,12 +20,12 @@
 
 <Toaster position="top-right" />
 
-<div class="mx-auto flex min-h-screen w-[97%] flex-col gap-4 items-center justify-center p-4">
+<div class="mx-auto flex min-h-screen w-[97%] flex-col items-center justify-center gap-4 p-4">
 	{#if $loadingBackendInfo}
 		<div class="h-32 w-32 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 	{:else}
 		{#if $didFailFetching}
-			<h1 class="my-8 flex items-center text-3xl font-bold text-center">
+			<h1 class="my-8 flex items-center text-center text-3xl font-bold">
 				🐴 {$_('fetch.title')}
 			</h1>
 			<p class="text-lg">{$_('fetch.description')}</p>
@@ -47,11 +47,7 @@
 				placeholder={$_('placeholders.json-input')}
 				onkeydown={(e) => {
 					// Allowed keys: Delete, Backspace, Tab, Ctrl+A, Ctrl+X, Ctrl+C, Ctrl+V
-					const allowedKeys = [
-						'Delete',
-						'Backspace',
-						'Tab'
-					];
+					const allowedKeys = ['Delete', 'Backspace', 'Tab'];
 
 					const allowedCtrlKeys = [
 						'a', // Ctrl+A (select all)
@@ -118,12 +114,12 @@
 				<Fr
 					class="inline h-6 w-6 cursor-pointer"
 					onclick={() => {
-						setLocalStorageLocale('fr');
+						setsessionStorageLocale('fr');
 					}}
 				/> & <Gb
 					class="inline h-6 w-6 cursor-pointer"
 					onclick={() => {
-						setLocalStorageLocale('en');
+						setsessionStorageLocale('en');
 					}}
 				/>. {$_('available-in.ending')}
 

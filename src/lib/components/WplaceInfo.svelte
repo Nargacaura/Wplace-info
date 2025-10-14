@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import { backendInfo, formatCoordinate, formatTime, getLocalStorageLocale } from '$lib';
+	import { backendInfo, formatCoordinate, formatTime, getsessionStorageLocale, reset } from '$lib';
 </script>
 
 <div class="my-8 flex flex-col items-center">
@@ -31,7 +31,7 @@
 									? $_('data.suspension-reason.' + $backendInfo!.suspensionReason)
 									: $_('data.suspension-reason.unknown'),
 								until: new Date($backendInfo!.timeoutUntil).toLocaleDateString(
-									getLocalStorageLocale() as string,
+									getsessionStorageLocale() as string,
 									{
 										year: 'numeric',
 										month: 'numeric',
@@ -148,4 +148,11 @@
 			</ul>
 		</fieldset>
 	</div>
+</div>
+
+<!-- Reset button -->
+<div class="mt-4">
+	<button class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" on:click={reset}>
+		{$_('actions.reset')}
+	</button>
 </div>

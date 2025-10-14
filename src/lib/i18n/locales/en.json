@@ -71,5 +71,8 @@
 	"fetch": {
 		"title": "Wplace JSON GUI",
 		"description": "Allows a more readable version of your JSON from Wplace's backend. Enter your JSON text below, but be sure to be logged in on Wplace first by clicking the link below ;)"
+	},
+	"actions": {
+		"reset": "Parse another JSON info"
 	}
 }

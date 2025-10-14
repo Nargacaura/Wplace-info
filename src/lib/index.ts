@@ -57,8 +57,7 @@ export const didFailFetching: Writable<boolean> = writable(true);
 export function parseBackendInfo(json: string): BackendInfo {
 	const data = JSON.parse(json) as BackendInfo;
 
-	if (typeof data !== 'object' || data === null)
-		throw new Error('Invalid backend info format');
+	if (typeof data !== 'object' || data === null) throw new Error('Invalid backend info format');
 
 	if (
 		typeof data.banned !== 'boolean' ||
@@ -79,7 +78,8 @@ export function parseBackendInfo(json: string): BackendInfo {
 		typeof data.pixelsPainted !== 'number' ||
 		typeof data.showLastPixel !== 'boolean' ||
 		typeof data.timeoutUntil !== 'string'
-	) throw new Error('Incomplete backend info data');
+	)
+		throw new Error('Incomplete backend info data');
 
 	return data;
 }
@@ -98,17 +98,17 @@ export function setBackendInfo(info: BackendInfo | null): void {
 	backendInfo.set(info);
 }
 
-export function getLocalStorageLocale(): string | null {
+export function getsessionStorageLocale(): string | null {
 	if (typeof window !== 'undefined') {
-		return window.localStorage.getItem('locale');
+		return window.sessionStorage.getItem('locale');
 	}
 	return null;
 }
-export const localSessionLocale: Writable<string | null> = writable(getLocalStorageLocale());
+export const localSessionLocale: Writable<string | null> = writable(getsessionStorageLocale());
 
-export function setLocalStorageLocale(givenLocale: string, skipLocaleSetting = false): void {
+export function setsessionStorageLocale(givenLocale: string, skipLocaleSetting = false): void {
 	if (typeof window !== 'undefined') {
-		window.localStorage.setItem('locale', givenLocale);
+		window.sessionStorage.setItem('locale', givenLocale);
 	}
 	if (!skipLocaleSetting) {
 		locale.set(givenLocale);
@@ -141,6 +141,18 @@ export async function reload(): Promise<void> {
 	loadingBackendInfo.set(true);
 	didFailFetching.set(false);
 	await loadBackendInfo();
+}
+
+/**
+ * Resets the backend information to null, simulating a loading state.
+ * Permits the user to re-enter their JSON data.
+ */
+export async function reset(): Promise<void> {
+	loadingBackendInfo.set(true);
+	didFailFetching.set(true); // Assume failure until new data is provided
+	backendInfo.set(null);
+	await new Promise((resolve) => setTimeout(resolve, 500));
+	loadingBackendInfo.set(false);
 }
 
 /**

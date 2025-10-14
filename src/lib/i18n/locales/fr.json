@@ -70,5 +70,8 @@
 	"fetch": {
 		"title": "GUI du JSON de Wplace",
 		"description": "Permet d'avoir une version plus lisible de votre JSON à partir du backend de Wplace. Entrez votre texte JSON ci-dessous, mais assurez-vous d'être d'abord connecté sur Wplace en cliquant sur le lien ci-dessous ;)"
+	},
+	"actions": {
+		"reset": "Analyser un autre objet JSON"
 	}
 }
