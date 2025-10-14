@@ -60,12 +60,16 @@ export function getLocalStorageLocale(): string | null {
 	}
 	return null;
 }
+export const localSessionLocale: Writable<string | null> = writable(getLocalStorageLocale());
 
-export function setLocalStorageLocale(givenLocale: string): void {
+export function setLocalStorageLocale(givenLocale: string, skipLocaleSetting = false): void {
 	if (typeof window !== 'undefined') {
 		window.localStorage.setItem('locale', givenLocale);
 	}
-	locale.set(givenLocale);
+	if (!skipLocaleSetting) {
+		locale.set(givenLocale);
+	}
+	localSessionLocale.set(givenLocale);
 }
 
 /**

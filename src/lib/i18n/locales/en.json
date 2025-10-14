@@ -56,5 +56,9 @@
   "boolean": {
     "yes": "Yes",
     "no": "No"
+  },
+  "available-in": {
+    "beginning": "This tool's available in",
+    "ending": "Click on a flag to change the language."
   }
 }

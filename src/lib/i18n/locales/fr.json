@@ -55,5 +55,9 @@
   "data_flag_equipped": "A équipé un drapeau?",
   "boolean": {
     "yes": "Oui"
+  },
+  "available-in": {
+    "beginning": "Cet outil est disponible en",
+    "ending": "Cliquez sur un drapeau pour changer la langue."
   }
 }
