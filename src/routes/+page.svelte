@@ -20,13 +20,13 @@
 
 <Toaster position="top-right" />
 
-<div class="flex h-screen flex-col items-center justify-center w-[97%] mx-auto">
+<div class="mx-auto flex h-screen w-[97%] flex-col items-center justify-center">
 	{#if $loadingBackendInfo}
 		<div class="h-32 w-32 animate-spin rounded-full border-t-2 border-b-2 border-blue-500"></div>
 	{:else}
 		{#if $didFailFetching}
 			<h1 class="my-8 flex items-center text-3xl font-bold">
-				{$_('fetch.title')}
+				🐴 {$_('fetch.title')}
 			</h1>
 			<p class="mb-4 text-lg">{$_('fetch.description')}</p>
 
@@ -36,7 +36,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				{$_('buttons.login')}
+				{$_('buttons.login')} 🐴
 			</a>
 			<br />
 
@@ -45,6 +45,34 @@
 				id="jsonInput"
 				class="my-4 h-40 w-[90%] rounded border border-gray-300 p-2"
 				placeholder={$_('placeholders.json-input')}
+				onkeydown={(e) => {
+					// Allowed keys: Delete, Backspace, Tab, Ctrl+A, Ctrl+X, Ctrl+C, Ctrl+V
+					const allowedKeys = [
+						'Delete',
+						'Backspace',
+						'Tab'
+					];
+
+					const allowedCtrlKeys = [
+						'a', // Ctrl+A (select all)
+						'x', // Ctrl+X (cut)
+						'c', // Ctrl+C (copy)
+						'v' // Ctrl+V (paste)
+					];
+
+					// If it's a combination with Ctrl
+					if (e.ctrlKey && allowedCtrlKeys.includes(e.key.toLowerCase())) {
+						return; // Allow
+					}
+
+					// If it's an allowed key without Ctrl
+					if (!e.ctrlKey && allowedKeys.includes(e.key)) {
+						return; // Allow
+					}
+
+					// Block all other keys
+					e.preventDefault();
+				}}
 			></textarea>
 			<br />
 			<button
@@ -72,7 +100,7 @@
 		<footer class="bottom-0 mx-auto mt-auto mb-4 w-[90%] rounded-lg bg-gray-100 p-4 text-center">
 			<!-- Disclaimer of non-affiliation -->
 			<p class="my-4 text-center text-xl text-red-500">
-				{$_('footer.disclaimer')}
+				⚠️ {$_('footer.disclaimer')}
 
 				<a
 					href="https://backend.wplace.live/me"
@@ -82,6 +110,7 @@
 				>
 					Raw JSON
 				</a>
+				🐴
 			</p>
 
 			<p class="mb-4 text-center text-gray-600">
@@ -100,7 +129,7 @@
 
 				<!-- Author -->
 				<small class="text-md mb-4 block text-center text-gray-400">
-					{$_('footer.made-with')} ❤️ {$_('footer.in-svelte')}
+					{$_('footer.made-with')} ❤️ & 🐴🐴 {$_('footer.in-svelte')}
 					{$_('footer.created-by')}
 					<a
 						href="https://nargacaura.github.io"

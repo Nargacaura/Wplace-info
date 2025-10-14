@@ -44,11 +44,13 @@
 		"pixels-placed": "Pixels painted",
 		"max-charges": "Maximum paintable pixels",
 		"cooldown": "Cooldown until max reached",
-		"favorites": "Favourite locations"
+		"favorites": "Favourite locations",
+		"no-favorites": "No favorites at this time."
 	},
 	"account-status": {
 		"banned": "You have been banned from Wplace for {reason}.",
-		"suspended": "You {conjugateBeing} suspended until {until} for {reason}."
+		"suspended": "You {conjugateBeing} suspended until {until} for {reason}.",
+		"appeal-info": "Note: if that suspension was wrongful to you, you can file an appeal using the \"forms\" channel on the official Wplace server."
 	},
 	"conjugate-being": {
 		"past": "have been",

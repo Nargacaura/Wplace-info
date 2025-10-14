@@ -11,7 +11,7 @@
 			<legend class="text-xl">{$_('data.last-suspension')}</legend>
 			{#if $backendInfo!.suspensionReason}
 				{#if $backendInfo!.banned}
-					<p class="text-5xl text-red-700">
+					<p class="text-4xl text-red-700">
 						{$_('account-status.banned', {
 							values: {
 								reason: $backendInfo!.suspensionReason
@@ -24,7 +24,7 @@
 					{@const nowTimestamp = new Date().getTime()}
 					{@const suspensionTimestamp = new Date($backendInfo!.timeoutUntil).getTime()}
 
-					<p class="text-5xl text-red-700">
+					<p class="text-4xl text-red-700">
 						{$_('account-status.suspended', {
 							values: {
 								reason: $backendInfo!.suspensionReason
@@ -34,7 +34,7 @@
 									getLocalStorageLocale() as string,
 									{
 										year: 'numeric',
-										month: 'long',
+										month: 'numeric',
 										day: 'numeric',
 										hour: '2-digit',
 										minute: '2-digit'
@@ -48,6 +48,8 @@
 						})}
 					</p>
 				{/if}
+
+				{$_('account-status.appeal-info')}
 			{:else}
 				<p class="text-gray-700">{$_('errors.no-suspension')}</p>
 			{/if}

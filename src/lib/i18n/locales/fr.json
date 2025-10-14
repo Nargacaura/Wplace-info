@@ -44,11 +44,13 @@
 		"pixels-placed": "Pixels placés",
 		"max-charges": "Maximum de pixels plaçables",
 		"cooldown": "Cooldown avant remplissage maximum",
-		"favorites": "Endroits favoris"
+		"favorites": "Endroits favoris",
+		"no-favorites": "Aucun favori pour le moment."
 	},
 	"account-status": {
 		"banned": "Vous êtes banni de Wplace pour {reason}.",
-		"suspended": "Vous {conjugateBeing} suspendu jusqu'au {until} pour {reason}."
+		"suspended": "Vous {conjugateBeing} suspendu jusqu'au {until} pour {reason}.",
+		"appeal-info": "Attention : si cette suspension vous est illicite, vous pouvez faire appel en utilisant le canal « formulaires » sur le serveur officiel Wplace."
 	},
 	"conjugate-being": {
 		"past": "avez été",
