@@ -1,7 +1,8 @@
 // place files you want to import through the `$lib` alias in this folder.
 
-import { writable, type Writable } from 'svelte/store';
-import { locale } from 'svelte-i18n';
+import { get, writable, type Writable } from 'svelte/store';
+import { _, locale } from 'svelte-i18n';
+import toast from 'svelte-french-toast';
 
 /**
  * Info fetched from Wplace's backend about the current user.
@@ -43,9 +44,25 @@ export type BackendInfo = {
 };
 
 export const backendInfo: Writable<BackendInfo | null> = writable(null);
-export const loadingBackendInfo: Writable<boolean> = writable(true);
-export const didFailFetching: Writable<boolean> = writable(false);
+export const loadingBackendInfo: Writable<boolean> = writable(false);
+export const didFailFetching: Writable<boolean> = writable(true);
 
+/**
+ * Reads a JSON file containing the data given by the `BackendInfo` type. Converts this JSON into a `BackendInfo` object.
+ * @param json - The JSON string to parse.
+ * @returns The parsed `BackendInfo` object.
+ * @throws Will throw an error if the JSON is invalid or does not conform to the `BackendInfo` type.
+ */
+export function parseBackendInfo(json: string): BackendInfo {
+	return JSON.parse(json) as BackendInfo;
+}
+
+/**
+ * Fetches the backend information for the current user.
+ * @returns A promise that resolves to the backend information.
+ *
+ * That doesn't work right now, with a "Forbidden" response from the backend...
+ */
 export async function fetchBackendInfos(): Promise<BackendInfo> {
 	return await (await fetch('https://backend.wplace.live/me')).json();
 }
@@ -97,6 +114,31 @@ export async function reload(): Promise<void> {
 	loadingBackendInfo.set(true);
 	didFailFetching.set(false);
 	await loadBackendInfo();
+}
+
+/**
+ * Reads the JSON input from a textarea with the ID 'json-input', parses it, and updates the backendInfo store.
+ */
+export async function readTextInput(): Promise<void> {
+	const inputElement = document.getElementById('jsonInput') as HTMLTextAreaElement | null;
+
+	if (inputElement) {
+		try {
+			const json = inputElement.value;
+			loadingBackendInfo.set(true);
+			const info = parseBackendInfo(json);
+			setBackendInfo(info);
+			didFailFetching.set(false);
+		} catch (e) {
+			console.error(e);
+			setBackendInfo(null);
+			didFailFetching.set(true);
+			toast.error(get(_)('errors.fetch-failure'));
+		} finally {
+			await new Promise((resolve) => setTimeout(resolve, 500)); // Artificial delay for better UX
+			loadingBackendInfo.set(false);
+		}
+	}
 }
 
 /**

@@ -854,6 +854,11 @@
   resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-1.20.2.tgz#97d26e00cd4a0423b4af620abecf3e6f442b7975"
   integrity sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==
 
+"@types/trusted-types@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
+  integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
+
 "@typescript-eslint/eslint-plugin@8.46.1":
   version "8.46.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.46.1.tgz#20876354024140aabc8b400bc95735fdcade17d5"
@@ -1142,6 +1147,13 @@ devalue@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/devalue/-/devalue-5.3.2.tgz#1d9a00f0d126a2f768589f236da8b67d6988d285"
   integrity sha512-UDsjUbpQn9kvm68slnrs+mfxwFkIflOhkanmyabZ8zOYk8SMEIbJ3TK+88g70hSIeytu4y18f0z/hYHMTrXIWw==
+
+dompurify@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.3.0.tgz#aaaadbb83d87e1c2fbb066452416359e5b62ec97"
+  integrity sha512-r+f6MYR1gGN1eJv0TVQbhA7if/U7P87cdPl3HN5rikqaBSBxLiCb/b9O+2eG0cxz0ghyU+mU1QkbsOwERMYlWQ==
+  optionalDependencies:
+    "@types/trusted-types" "^2.0.7"
 
 enhanced-resolve@^5.18.3:
   version "5.18.3"
@@ -2178,6 +2190,13 @@ svelte-flag-icons@^2.0.2:
   resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-2.0.2.tgz#5f048110a6281ed704adde1e2e50412efa6b80bf"
   integrity sha512-ke+hBHgvRWsDCeUxqHQIDCMBGWDu1rTe5sCRTElX/A3glK7eUeLeKDUcBesxqmKoJxtoa8jvTiMmudiqSCr8Eg==
 
+svelte-french-toast@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-french-toast/-/svelte-french-toast-1.2.0.tgz#bfe3696ee1e3cbdee2a300e0153dede7d6d802eb"
+  integrity sha512-5PW+6RFX3xQPbR44CngYAP1Sd9oCq9P2FOox4FZffzJuZI2mHOB7q5gJBVnOiLF5y3moVGZ7u2bYt7+yPAgcEQ==
+  dependencies:
+    svelte-writable-derived "^3.1.0"
+
 svelte-i18n@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/svelte-i18n/-/svelte-i18n-4.0.1.tgz#e2d2ecda9d8848300b80599c2cf4d1e495f616e1"
@@ -2190,6 +2209,11 @@ svelte-i18n@^4.0.1:
     intl-messageformat "^10.5.3"
     sade "^1.8.1"
     tiny-glob "^0.2.9"
+
+svelte-writable-derived@^3.1.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/svelte-writable-derived/-/svelte-writable-derived-3.1.1.tgz#03222b32f8a66ea503e95b3cce8b94bec0810044"
+  integrity sha512-w4LR6/bYZEuCs7SGr+M54oipk/UQKtiMadyOhW0PTwAtJ/Ai12QS77sLngEcfBx2q4H8ZBQucc9ktSA5sUGZWw==
 
 svelte@^5.39.5:
   version "5.39.12"

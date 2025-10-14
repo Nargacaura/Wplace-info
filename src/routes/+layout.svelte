@@ -4,7 +4,10 @@
 	import '$lib/i18n';
 	import { locale, waitLocale, _ } from 'svelte-i18n';
 	import { onMount } from 'svelte';
-	import { getLocalStorageLocale, loadBackendInfo, localSessionLocale, setLocalStorageLocale } from '$lib';
+	import {
+		localSessionLocale,
+		setLocalStorageLocale
+	} from '$lib';
 
 	let { children } = $props();
 
@@ -18,7 +21,6 @@
 
 			setLocalStorageLocale($locale as string, true);
 		}
-		await loadBackendInfo();
 	});
 </script>
 

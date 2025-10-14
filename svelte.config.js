@@ -6,10 +6,13 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	kit: { adapter: adapter({
-		pages: 'build',
-		strict: true
-	}), paths: { base: '/Wplace-info' } }
+	kit: {
+		adapter: adapter({
+			pages: 'build',
+			strict: true
+		}),
+		paths: { base: '/Wplace-info' }
+	}
 };
 
 export default config;

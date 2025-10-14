@@ -1,12 +1,7 @@
 {
-    "i18n-ally.localesPaths": [
-        "src/lib/i18n",
-        "src/lib/i18n/locales"
-    ],
-    "i18n-ally.keystyle": "nested",
-    "i18n-ally.extract.ignoredByFiles": {
-        "src\\routes\\+layout.svelte": [
-            "\n\t\t\tRaw JSON\n\t\t"
-        ]
-    }
+	"i18n-ally.localesPaths": ["src/lib/i18n", "src/lib/i18n/locales"],
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.extract.ignoredByFiles": {
+		"src\\routes\\+layout.svelte": ["\n\t\t\tRaw JSON\n\t\t"]
+	}
 }

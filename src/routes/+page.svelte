@@ -2,15 +2,17 @@
 	import {
 		backendInfo,
 		didFailFetching,
-		getLocalStorageLocale,
 		loadingBackendInfo,
-		reload,
+		readTextInput,
 		setLocalStorageLocale
 	} from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
 	import { _ } from 'svelte-i18n';
 	import { Fr, Gb } from 'svelte-flag-icons';
+	import { Toaster } from 'svelte-french-toast';
 </script>
+
+<Toaster position="top-right" />
 
 <div class="flex h-screen flex-col items-center justify-center">
 	{#if $loadingBackendInfo}
@@ -18,22 +20,35 @@
 	{:else}
 		{#if $didFailFetching}
 			<h1 class="my-8 flex items-center text-3xl font-bold">
-				{$_('errors.fetch-failure-title')}
+				{$_('fetch.title')}
 			</h1>
-			<p class="mb-4 text-lg text-red-500">{$_('errors.fetch-failure')}</p>
+			<p class="mb-4 text-lg">{$_('fetch.description')}</p>
 
-			<div class="mb-4">
-				<a
-					href="https://wplace.live/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-blue-500 underline"
-				>
-					{$_('buttons.login')}
-				</a>
-			</div>
-			<button class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" onclick={reload}>
-				{$_('buttons.retry')}
+			<a
+				class="mb-4 inline-block rounded bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600"
+				href="https://wplace.live/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{$_('buttons.login')}
+			</a>
+			<br />
+
+			{$_('errors.upload-json-manually')}
+			<textarea
+				id="jsonInput"
+				class="my-4 h-40 w-[90%] rounded border border-gray-300 p-2"
+				placeholder={$_('placeholders.json-input')}
+			></textarea>
+			<br />
+			<button
+				class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+				id="upload-json"
+				onclick={async () => {
+					await readTextInput();
+				}}
+			>
+				{$_('buttons.upload-json')}
 			</button>
 		{:else}
 			<h1 class="my-8 flex items-center text-3xl font-bold">
@@ -65,13 +80,17 @@
 
 			<p class="mb-4 text-center text-gray-600">
 				{$_('available-in.beginning')}
-				<Fr class="inline h-6 w-6 cursor-pointer"
+				<Fr
+					class="inline h-6 w-6 cursor-pointer"
 					onclick={() => {
 						setLocalStorageLocale('fr');
 					}}
-				/> & <Gb class="inline h-6 w-6 cursor-pointer" onclick={() => {
+				/> & <Gb
+					class="inline h-6 w-6 cursor-pointer"
+					onclick={() => {
 						setLocalStorageLocale('en');
-					}} />. {$_('available-in.ending')}
+					}}
+				/>. {$_('available-in.ending')}
 
 				<!-- Author -->
 				<small class="text-md mb-4 block text-center text-gray-400">
