@@ -98,17 +98,19 @@ export function setBackendInfo(info: BackendInfo | null): void {
 	backendInfo.set(info);
 }
 
-export function getsessionStorageLocale(): string | null {
+export function getLocalStorageLocale(): string | null {
 	if (typeof window !== 'undefined') {
-		return window.sessionStorage.getItem('locale');
+		return window.localStorage.getItem('locale');
 	}
 	return null;
 }
-export const localSessionLocale: Writable<string | null> = writable(getsessionStorageLocale());
+
+export const localSessionLocale: Writable<string | null> = writable(getLocalStorageLocale());
 
 export function setsessionStorageLocale(givenLocale: string, skipLocaleSetting = false): void {
 	if (typeof window !== 'undefined') {
 		window.sessionStorage.setItem('locale', givenLocale);
+		window.localStorage.setItem('locale', givenLocale);
 	}
 	if (!skipLocaleSetting) {
 		locale.set(givenLocale);
