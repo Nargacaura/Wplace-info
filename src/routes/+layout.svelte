@@ -22,6 +22,10 @@
 </script>
 
 <svelte:head>
+	<link rel="icon" type="image/png" href="favicon_alt.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Wplace user information JSON-to-GUI tool" />
+	<meta name="author" content="Pagos (@Nargacaura)" />
 	<title>Wplace user information GUI</title>
 </svelte:head>
 
