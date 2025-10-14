@@ -7,7 +7,7 @@
 	<!-- Fieldset grid with user information -->
 	<div class="grid w-[90%] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 		<!-- Fieldset indicating the last suspension -->
-		<fieldset class="mb-4 rounded border border-gray-300 p-4 text-center">
+		<fieldset class="list-inside border border-gray-300 p-4 text-center">
 			<legend class="text-xl">{$_('data.last-suspension')}</legend>
 			{#if $backendInfo!.suspensionReason}
 				{#if $backendInfo!.banned}

@@ -28,7 +28,7 @@
 			<h1 class="my-8 flex items-center text-center text-3xl font-bold">
 				🐴 {$_('fetch.title')}
 			</h1>
-			<p class="text-lg">{$_('fetch.description')}</p>
+			<p class="text-base text-center">{$_('fetch.description')}</p>
 
 			<a
 				class="inline-block rounded bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600"
@@ -40,7 +40,7 @@
 			</a>
 			<br />
 
-			<p class="text-base">{$_('errors.upload-json-manually')}</p>
+			<p class="text-base text-center">{$_('errors.upload-json-manually')}</p>
 			<textarea
 				id="jsonInput"
 				class="h-40 w-[90%] rounded border border-gray-300 p-2"
