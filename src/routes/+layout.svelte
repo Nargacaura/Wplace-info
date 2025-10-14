@@ -3,10 +3,9 @@
 	import { browser } from '$app/environment';
 	import '$lib/i18n';
 	import { locale, waitLocale, _ } from 'svelte-i18n';
-	import favicon from '$lib/assets/favicon.svg';
 	import { onMount } from 'svelte';
 	import { Fr, Gb } from 'svelte-flag-icons';
-	import { backendInfo, didFailFetching, getLocalStorageLocale, loadBackendInfo, setLocalStorageLocale } from '$lib';
+	import { getLocalStorageLocale, loadBackendInfo, setLocalStorageLocale } from '$lib';
 
 	let { children } = $props();
 
@@ -30,8 +29,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={$backendInfo?.picture || favicon} />
-	<title>{$backendInfo?.name ? `${$backendInfo.name}\'s Wplace info'` : $didFailFetching? 'Oops.': 'Loading...'}</title>
+	<title>Wplace user information GUI</title>
 </svelte:head>
 
 <!-- Change locale button -->

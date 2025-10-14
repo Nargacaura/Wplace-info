@@ -661,6 +661,11 @@
     "@rollup/plugin-node-resolve" "^16.0.0"
     rollup "^4.9.5"
 
+"@sveltejs/adapter-static@^3.0.10":
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-3.0.10.tgz#526ab78cd1d3a861dd0233e8ff34a204af40d595"
+  integrity sha512-7D9lYFWJmB7zxZyTE/qxjksvMqzMuYrrsyh1f4AlZqeZeACPRySjbC3aFiY55wb1tWUaKOQG9PVbm74JcN2Iew==
+
 "@sveltejs/kit@^2.43.2":
   version "2.46.5"
   resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.46.5.tgz#79fdee2beb446001a14dffd69883cdf27bfb9488"
