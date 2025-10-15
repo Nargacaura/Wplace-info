@@ -15,7 +15,7 @@
 		"upload-json": "Charger le JSON des infos de Wplace"
 	},
 	"footer": {
-		"disclaimer": "Ce site n'est aucunement affilié à Wplace. Son seul objectif est de mettre en place une interface graphique pour rendre le backend plus lisible.",
+		"disclaimer": "Cet outil n'est en aucun cas affilié à Wplace. Son seul but est d’avoir une version lisible du JSON que l’on retrouve dans le backend. Rien n'est stocké à distance, tout est fait sur votre machine.",
 		"made-with": "Codé avec",
 		"in-svelte": "en Svelte",
 		"created-by": "par"

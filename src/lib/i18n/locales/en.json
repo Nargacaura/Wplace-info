@@ -15,7 +15,7 @@
 		"upload-json": "Upload Wplace info JSON object"
 	},
 	"footer": {
-		"disclaimer": "This site is not affiliated with Wplace whatsoever. Its sole purpose is to have a readable version of the JSON that can be found in the backend.",
+		"disclaimer": "This tool is not affiliated with Wplace whatsoever. Its sole purpose is to have a readable version of the JSON that can be found in the backend. Nothing is remotely stored at all, everything is done on your machine.",
 		"made-with": "Coded with",
 		"in-svelte": "in Svelte",
 		"created-by": "by"

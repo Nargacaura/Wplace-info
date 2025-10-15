@@ -1,8 +1,11 @@
-# Wplace information GUI
+# Wplace information JSON-to-GUI tool
 
 ## Purpose of this tool
 
-This site's whole purpose is to add a GUI to [Wplace's backend information](https://backend.wplace.live/me), as to render it in a more readable fashion. It is not affiliated to Wplace whatsoever.
+This tool's whole purpose is to add a GUI to [Wplace's backend information](https://backend.wplace.live/me), as to render it in a more readable fashion. It is not affiliated to Wplace whatsoever.
+
+> [!IMPORTANT]
+> Nothing is remotely stored at all. Everything is processed on your own machine. So no fret if you hesitate putting your JSON in the tool's website :)
 
 ## How does this work?
 
@@ -13,7 +16,7 @@ This site's whole purpose is to add a GUI to [Wplace's backend information](http
 
 ## Available languages
 
-The site's available in French and English right now, feel free to fork it to add another language via a pull request :thumbsup:
+The tool's available in French and English right now, feel free to fork it to add another language via a pull request :thumbsup:
 
 ## Fun fact
 
