@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: "[ᣇ Feature]: ..."
+title: "[Feature]: ..."
 labels: enhancement
 assignees: Nargacaura
 
