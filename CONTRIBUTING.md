@@ -14,7 +14,7 @@ Well, you'll need to **fork this repo** and edit the `i18n/locales` folder by ad
 > [!IMPORTANT]
 > For an optimal translation, I recommend that you use **Visual Studio Code or any extension-compatible IDE** that supports **i18n Ally**. This extension is of a great help rapidly translating texts in a language.
 
-One the translations added, don't forget to add a flag in `+page.svelte` so that the language can be changed with the click on it ;) Also, you will have to **open a PR from your repository to mine**, like a bugfix.
+Once the translations have been added, don't forget to add a flag in `+page.svelte` so that the language can be changed with the click on it ;) Also, you will have to **open a PR from your repository to mine**, like a bugfix.
 
 ## I got ideas!
 
