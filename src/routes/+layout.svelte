@@ -1,32 +1,28 @@
 <script lang="ts">
 	import '../app.css';
-	import { browser } from '$app/environment';
 	import '$lib/i18n';
-	import { locale, waitLocale } from 'svelte-i18n';
+	import { getLocaleFromNavigator, locale, waitLocale } from 'svelte-i18n';
 	import { onMount } from 'svelte';
-	import { getLocalStorageLocale, localSessionLocale } from '$lib';
+	import { getLocalStorageLocale, setLocalStorageLocale } from '$lib';
 
 	let { children } = $props();
 
 	onMount(async (): Promise<void> => {
 		// Try to restore locale from session storage first
 		const storedLocale = getLocalStorageLocale();
-		localSessionLocale.set(storedLocale);
-
 		await new Promise((resolve) => setTimeout(resolve, 100)); // Slight delay to ensure store is updated
 
 		if (storedLocale) {
 			// Use stored locale if available
 			locale.set(storedLocale);
-			await waitLocale();
 		} else {
 			// Fallback to browser locale if no stored locale
-			if (browser) {
-				const browserLocale = window.navigator.language.split('-')[0];
-				locale.set(browserLocale);
-				await waitLocale();
-			}
+			locale.set((getLocaleFromNavigator() as string).split('-')[0] === 'fr' ? 'fr' : 'en');
 		}
+		await waitLocale();
+
+		setLocalStorageLocale($locale as string);
+		await new Promise((resolve) => setTimeout(resolve, 100));
 	});
 </script>
 
