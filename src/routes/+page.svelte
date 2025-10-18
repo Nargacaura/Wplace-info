@@ -4,7 +4,7 @@
 		didFailFetching,
 		loadingBackendInfo,
 		readTextInput,
-		setsessionStorageLocale
+		setLocalStorageLocale
 	} from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
 	import { _ } from 'svelte-i18n';
@@ -53,7 +53,8 @@
 						'a', // Ctrl+A (select all)
 						'x', // Ctrl+X (cut)
 						'c', // Ctrl+C (copy)
-						'v' // Ctrl+V (paste)
+						'v', // Ctrl+V (paste)
+						'z' // Ctrl+Z (cancel)
 					];
 
 					// If it's a combination with Ctrl
@@ -114,12 +115,12 @@
 				<Fr
 					class="inline h-6 w-6 cursor-pointer"
 					onclick={() => {
-						setsessionStorageLocale('fr');
+						setLocalStorageLocale('fr');
 					}}
 				/> & <Gb
 					class="inline h-6 w-6 cursor-pointer"
 					onclick={() => {
-						setsessionStorageLocale('en');
+						setLocalStorageLocale('en');
 					}}
 				/>. {$_('available-in.ending')}
 

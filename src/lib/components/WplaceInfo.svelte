@@ -22,7 +22,8 @@
 					</p>
 				{:else}
 					{@const nowTimestamp = new Date().getTime()}
-					{@const suspensionTimestamp = new Date($backendInfo!.timeoutUntil).getTime()}
+					{@const formattedDateUntilSuspensionEnding = new Date($backendInfo!.timeoutUntil)}
+					{@const suspensionTimestamp = formattedDateUntilSuspensionEnding.getTime()}
 
 					<p class="text-4xl text-red-700">
 						{$_('account-status.suspended', {
@@ -30,7 +31,7 @@
 								reason: $backendInfo!.suspensionReason
 									? $_('data.suspension-reason.' + $backendInfo!.suspensionReason)
 									: $_('data.suspension-reason.unknown'),
-								until: new Date($backendInfo!.timeoutUntil).toLocaleDateString(
+								until: formattedDateUntilSuspensionEnding.toLocaleDateString(
 									getLocalStorageLocale() as string,
 									{
 										year: 'numeric',
@@ -152,7 +153,7 @@
 
 <!-- Reset button -->
 <div class="mt-4">
-	<button class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" on:click={reset}>
+	<button class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" onclick={reset}>
 		{$_('actions.reset')}
 	</button>
 </div>
