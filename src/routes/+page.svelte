@@ -32,8 +32,8 @@
 						<div class="relative">
 							<select
 								class="appearance-none rounded bg-gray-200 px-4 py-2 pr-8 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-								bind:value={$locale}
-								aria-label="Select language"
+								onchange={(e) => setLocalStorageLocale((e.target as HTMLSelectElement).value)}
+								value={$locale}
 							>
 								<option value="en">🇬🇧 English</option>
 								<option value="fr">🇫🇷 Français</option>
