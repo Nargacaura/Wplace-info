@@ -109,7 +109,6 @@ export const localSessionLocale: Writable<string | null> = writable(getLocalStor
 
 export function setLocalStorageLocale(givenLocale: string, skipLocaleSetting = false): void {
 	if (typeof window !== 'undefined') {
-		window.sessionStorage.setItem('locale', givenLocale);
 		window.localStorage.setItem('locale', givenLocale);
 	}
 	if (!skipLocaleSetting) {
