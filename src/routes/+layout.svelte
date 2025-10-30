@@ -3,11 +3,14 @@
 	import '$lib/i18n';
 	import { getLocaleFromNavigator, locale, waitLocale } from 'svelte-i18n';
 	import { onMount } from 'svelte';
-	import { getLocalStorageLocale, setLocalStorageLocale } from '$lib';
+	import { getLocalStorageLocale, setLocalStorageLocale, initializeTheme } from '$lib';
 
 	let { children } = $props();
 
 	onMount(async (): Promise<void> => {
+		// Initialize theme system first to prevent flash
+		initializeTheme();
+
 		// Try to restore locale from session storage first
 		const storedLocale = getLocalStorageLocale();
 		await new Promise((resolve) => setTimeout(resolve, 100)); // Slight delay to ensure store is updated

@@ -117,6 +117,111 @@ export function setLocalStorageLocale(givenLocale: string, skipLocaleSetting = f
 	localSessionLocale.set(givenLocale);
 }
 
+// Theme management
+export type Theme = 'lux' | 'umbra' | 'system';
+
+// Global variable to track system theme listener
+let systemThemeListener: ((e: MediaQueryListEvent) => void) | null = null;
+let systemMediaQuery: MediaQueryList | null = null;
+
+export function getLocalStorageTheme(): Theme | null {
+	if (typeof window !== 'undefined') {
+		const theme = window.localStorage.getItem('theme') as Theme | null;
+		return theme && ['lux', 'umbra', 'system'].includes(theme) ? theme : null;
+	}
+	return null;
+}
+
+export const localSessionTheme: Writable<Theme | null> = writable(getLocalStorageTheme());
+
+export function setLocalStorageTheme(givenTheme: Theme): void {
+	if (typeof window !== 'undefined') {
+		window.localStorage.setItem('theme', givenTheme);
+	}
+	localSessionTheme.set(givenTheme);
+
+	// Clean up any existing system listener
+	cleanupSystemListener();
+
+	// Apply the theme
+	applyTheme(givenTheme);
+
+	// Setup system listener only if using system mode
+	if (givenTheme === 'system') {
+		setupSystemListener();
+	}
+}
+
+export function applyTheme(theme: Theme): void {
+	if (typeof window === 'undefined') return;
+
+	const html = document.documentElement;
+	const shouldBeDark =
+		theme === 'umbra' ||
+		(theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+	console.log(
+		`Applying theme: ${theme}, shouldBeDark: ${shouldBeDark}, current classes:`,
+		html.className
+	);
+
+	// Use Tailwind's recommended approach with toggle
+	html.classList.toggle('dark', shouldBeDark);
+
+	console.log(`After applying theme, classes:`, html.className);
+}
+
+function cleanupSystemListener(): void {
+	if (systemMediaQuery && systemThemeListener) {
+		systemMediaQuery.removeEventListener('change', systemThemeListener);
+		systemThemeListener = null;
+		systemMediaQuery = null;
+	}
+}
+
+function setupSystemListener(): void {
+	if (typeof window === 'undefined') return;
+
+	// Clean up existing listener first
+	cleanupSystemListener();
+
+	// Setup new listener
+	systemMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+	systemThemeListener = () => {
+		const currentTheme = getLocalStorageTheme();
+		if (currentTheme === 'system') {
+			applyTheme('system');
+		}
+	};
+
+	systemMediaQuery.addEventListener('change', systemThemeListener);
+}
+
+export function initializeTheme(): void {
+	if (typeof window === 'undefined') return;
+
+	const savedTheme = getLocalStorageTheme();
+	const defaultTheme: Theme = 'system';
+
+	const themeToUse = savedTheme || defaultTheme;
+
+	// Always clean up first
+	cleanupSystemListener();
+
+	if (!savedTheme) {
+		// This will call setLocalStorageTheme which handles listeners
+		setLocalStorageTheme(themeToUse);
+	} else {
+		localSessionTheme.set(themeToUse);
+		applyTheme(themeToUse);
+
+		// Setup listener if needed
+		if (themeToUse === 'system') {
+			setupSystemListener();
+		}
+	}
+}
+
 /**
  * Reloads the backend information by fetching it again.
  * Sets loadingPage to true while fetching and handles errors.

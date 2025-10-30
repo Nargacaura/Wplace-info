@@ -7,7 +7,9 @@
 	<!-- Fieldset grid with user information -->
 	<div class="grid w-[90%] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 		<!-- Fieldset indicating the last suspension -->
-		<fieldset class="list-inside border border-gray-300 p-4 text-center">
+		<fieldset
+			class="list-inside border border-gray-300 bg-white p-4 text-center text-gray-900 dark:border-gray-600 dark:bg-black dark:text-gray-100"
+		>
 			<legend class="text-xl">{$_('data.last-suspension')}</legend>
 			{#if $backendInfo!.suspensionReason}
 				{#if $backendInfo!.banned}
@@ -52,11 +54,13 @@
 
 				{$_('account-status.appeal-info')}
 			{:else}
-				<p class="text-gray-700">{$_('errors.no-suspension')}</p>
+				<p class="text-gray-700 dark:text-gray-300">{$_('errors.no-suspension')}</p>
 			{/if}
 		</fieldset>
 		<!-- General Information fieldset -->
-		<fieldset class="rounded border border-gray-300 p-4 text-center">
+		<fieldset
+			class="rounded border border-gray-300 bg-white p-4 text-center text-gray-900 dark:border-gray-600 dark:bg-black dark:text-gray-100"
+		>
 			<legend class="text-xl">{$_('data.general-information')}</legend>
 			<ul class="list-inside list-disc text-left">
 				<li>
@@ -86,7 +90,9 @@
 		</fieldset>
 
 		<!-- Level & droplets fieldset -->
-		<fieldset class="rounded border border-gray-300 p-4 text-center">
+		<fieldset
+			class="rounded border border-gray-300 bg-white p-4 text-center text-gray-900 dark:border-gray-600 dark:bg-black dark:text-gray-100"
+		>
 			<legend class="text-xl">{$_('data.level-and-droplets')}</legend>
 			<ul class="list-inside list-disc text-left">
 				<li>
@@ -121,7 +127,9 @@
 		</fieldset>
 
 		<!-- Favorites fieldset -->
-		<fieldset class="rounded border border-gray-300 p-4 text-center">
+		<fieldset
+			class="rounded border border-gray-300 bg-white p-4 text-center text-gray-900 dark:border-gray-600 dark:bg-black dark:text-gray-100"
+		>
 			<legend class="text-xl"
 				>{$_('data.favorites')} ({$backendInfo!.favoriteLocations.length} / {$backendInfo!
 					.maxFavoriteLocations})</legend
@@ -134,7 +142,7 @@
 								href="https://wplace.live/?lat={location.latitude}&lng={location.longitude}&zoom=14"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-blue-500"
+								class="text-blue-500 hover:text-blue-600 dark:text-orange-500 dark:hover:text-red-600"
 							>
 								{formatCoordinate(location.latitude, true)}, {formatCoordinate(
 									location.longitude,
@@ -153,7 +161,10 @@
 
 <!-- Reset button -->
 <div class="mt-4">
-	<button class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600" onclick={reset}>
+	<button
+		class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 dark:bg-orange-700 dark:hover:bg-red-600"
+		onclick={reset}
+	>
 		{$_('actions.reset')}
 	</button>
 </div>
