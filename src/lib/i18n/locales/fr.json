@@ -12,13 +12,18 @@
 		"retry": "Réessayer",
 		"login": "Se connecter à Wplace",
 		"change-language": "Changer de langue (FR ⇋ EN)",
-		"upload-json": "Charger le JSON des infos de Wplace"
+		"upload-json": "Charger le JSON des infos de Wplace",
+		"get-json": "Obtenez vos données JSON"
 	},
 	"footer": {
 		"disclaimer": "Cet outil n'est en aucun cas affilié à Wplace. Son seul but est d’avoir une version lisible du JSON que l’on retrouve dans le backend. Rien n'est stocké à distance, tout est fait sur votre machine.",
 		"made-with": "Codé avec",
 		"in-svelte": "en Svelte",
-		"created-by": "par"
+		"created-by": "par",
+		"info": {
+			"unicode-orca": "Si vous voyez un carré vide ici, vous n'avez peut-être pas encore Unicode 17. Et oui, j'adore les orques."
+		},
+		"source-code-on": "Code source disponible sur"
 	},
 	"data": {
 		"picture": "Avatar de {name}",
@@ -50,7 +55,7 @@
 	"account-status": {
 		"banned": "Vous êtes banni de Wplace pour {reason}.",
 		"suspended": "Vous {conjugateBeing} suspendu jusqu'au {until} pour {reason}.",
-		"appeal-info": "Attention : si cette suspension vous est illicite, vous pouvez faire appel en utilisant le canal « formulaires » sur le serveur officiel Wplace."
+		"appeal-info": "Attention : si cette suspension vous est illicite, vous pouvez faire appel sur le site (cliquez sur l'avatar en haut à droite > « Appeal »)."
 	},
 	"conjugate-being": {
 		"past": "avez été",

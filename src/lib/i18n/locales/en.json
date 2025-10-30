@@ -12,13 +12,18 @@
 		"retry": "Retry",
 		"login": "Login to Wplace",
 		"change-language": "Change language (FR ⇋ EN)",
-		"upload-json": "Upload Wplace info JSON object"
+		"upload-json": "Upload Wplace info JSON object",
+		"get-json": "Get your JSON data"
 	},
 	"footer": {
 		"disclaimer": "This tool is not affiliated with Wplace whatsoever. Its sole purpose is to have a readable version of the JSON that can be found in the backend. Nothing is remotely stored at all, everything is done on your machine.",
 		"made-with": "Coded with",
 		"in-svelte": "in Svelte",
-		"created-by": "by"
+		"created-by": "by",
+		"info": {
+			"unicode-orca": "If you see a blank square here, you might not have Unicode 17 yet. And yes, I love orcas."
+		},
+		"source-code-on": "Source code available on"
 	},
 	"data": {
 		"picture": "{name}'s profile picture",
@@ -50,7 +55,7 @@
 	"account-status": {
 		"banned": "You have been banned from Wplace for {reason}.",
 		"suspended": "You {conjugateBeing} suspended until {until} for {reason}.",
-		"appeal-info": "Note: if that suspension was wrongful to you, you can file an appeal using the \"forms\" channel on the official Wplace server."
+		"appeal-info": "Note: if that suspension was wrongful to you, you can file an appeal on-site (click the avatar on the top right > \"Appeal\")."
 	},
 	"conjugate-being": {
 		"past": "have been",
