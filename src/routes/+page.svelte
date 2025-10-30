@@ -4,16 +4,17 @@
 		didFailFetching,
 		loadingBackendInfo,
 		readTextInput,
-		setLocalStorageLocale,
-		setLocalStorageTheme,
-		localSessionTheme,
-		initializeTheme,
-		type Theme
+		initializeTheme
 	} from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
-	import { _, locale } from 'svelte-i18n';
+	import ThemeSelector from '$lib/components/ThemeSelector.svelte';
+	import LanguageSelector from '$lib/components/LanguageSelector.svelte';
+	import { _ } from 'svelte-i18n';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
+
+	// eslint-disable-next-line svelte/valid-prop-names-in-kit-pages
+	let { dispatch } = $props(); // Added to pass to selectors and avoid a Svelte error raised by the IDE
 
 	onMount(async () => {
 		initializeTheme(); // Initialize theme system
@@ -39,59 +40,10 @@
 					<!-- Language and Theme selection -->
 					<div class="mt-4 flex justify-center gap-4">
 						<!-- Language selection -->
-						<div class="relative">
-							<select
-								class="appearance-none rounded bg-gray-200 px-4 py-2 pr-8 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
-								onchange={(e) => setLocalStorageLocale((e.target as HTMLSelectElement).value)}
-								aria-label="Select language"
-							>
-								<option value="en" selected={$locale === 'en'}>🇬🇧 English</option>
-								<option value="fr" selected={$locale === 'fr'}>🇫🇷 Français</option>
-							</select>
-							<!-- Flèche personnalisée -->
-							<div
-								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"
-							>
-								<svg
-									class="h-4 w-4 fill-current"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-								>
-									<path
-										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-									/>
-								</svg>
-							</div>
-						</div>
+						<LanguageSelector {dispatch} />
 
 						<!-- Theme selection -->
-						<div class="relative">
-							<select
-								class="appearance-none rounded bg-gray-200 px-4 py-2 pr-8 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
-								onchange={(e) =>
-									setLocalStorageTheme((e.target as HTMLSelectElement).value as Theme)}
-								value={$localSessionTheme || 'system'}
-								aria-label="Select theme"
-							>
-								<option value="lux">{$_('theme.lux')}</option>
-								<option value="umbra">{$_('theme.umbra')}</option>
-								<option value="system">{$_('theme.system')}</option>
-							</select>
-							<!-- Flèche personnalisée -->
-							<div
-								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"
-							>
-								<svg
-									class="h-4 w-4 fill-current"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-								>
-									<path
-										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-									/>
-								</svg>
-							</div>
-						</div>
+						<ThemeSelector {dispatch} />
 					</div>
 				</small>
 			</h1>
@@ -179,59 +131,10 @@
 					<!-- Language and Theme selection -->
 					<div class="mt-4 flex justify-center gap-4">
 						<!-- Language selection -->
-						<div class="relative">
-							<select
-								class="appearance-none rounded bg-gray-200 px-4 py-2 pr-8 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
-								onchange={(e) => setLocalStorageLocale((e.target as HTMLSelectElement).value)}
-								aria-label="Select language"
-							>
-								<option value="en" selected={$locale === 'en'}>🇬🇧 English</option>
-								<option value="fr" selected={$locale === 'fr'}>🇫🇷 Français</option>
-							</select>
-							<!-- Flèche personnalisée -->
-							<div
-								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"
-							>
-								<svg
-									class="h-4 w-4 fill-current"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-								>
-									<path
-										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-									/>
-								</svg>
-							</div>
-						</div>
+						<LanguageSelector {dispatch} />
 
 						<!-- Theme selection -->
-						<div class="relative">
-							<select
-								class="appearance-none rounded bg-gray-200 px-4 py-2 pr-8 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600"
-								onchange={(e) =>
-									setLocalStorageTheme((e.target as HTMLSelectElement).value as Theme)}
-								value={$localSessionTheme || 'system'}
-								aria-label="Select theme"
-							>
-								<option value="lux">{$_('theme.lux')}</option>
-								<option value="umbra">{$_('theme.umbra')}</option>
-								<option value="system">{$_('theme.system')}</option>
-							</select>
-							<!-- Flèche personnalisée -->
-							<div
-								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"
-							>
-								<svg
-									class="h-4 w-4 fill-current"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-								>
-									<path
-										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-									/>
-								</svg>
-							</div>
-						</div>
+						<ThemeSelector {dispatch} />
 					</div>
 				</small>
 			</h1>
