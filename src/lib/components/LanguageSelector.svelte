@@ -6,6 +6,7 @@
 
 	let isOpen = $state(false);
 	let buttonRef: HTMLButtonElement;
+	let dropdownRef = $state<HTMLUListElement>();
 
 	const languages = [
 		{ value: 'en', label: '🇬🇧 English' },
@@ -27,7 +28,12 @@
 
 	// Close dropdown when clicking outside
 	function handleClickOutside(event: MouseEvent) {
-		if (buttonRef && !buttonRef.contains(event.target as Node)) {
+		const target = event.target as Node;
+		if (
+			buttonRef &&
+			!buttonRef.contains(target) &&
+			(!dropdownRef || !dropdownRef.contains(target))
+		) {
 			isOpen = false;
 		}
 	}
@@ -64,6 +70,7 @@
 
 	{#if isOpen}
 		<ul
+			bind:this={dropdownRef}
 			class="absolute top-full right-0 left-0 z-10 mt-1 rounded border border-gray-300 bg-white shadow-lg dark:border-gray-600 dark:bg-gray-800"
 			role="listbox"
 			onkeydown={handleKeydown}

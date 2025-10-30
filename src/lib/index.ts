@@ -160,15 +160,8 @@ export function applyTheme(theme: Theme): void {
 		theme === 'umbra' ||
 		(theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-	console.log(
-		`Applying theme: ${theme}, shouldBeDark: ${shouldBeDark}, current classes:`,
-		html.className
-	);
-
 	// Use Tailwind's recommended approach with toggle
 	html.classList.toggle('dark', shouldBeDark);
-
-	console.log(`After applying theme, classes:`, html.className);
 }
 
 function cleanupSystemListener(): void {

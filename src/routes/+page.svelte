@@ -1,11 +1,5 @@
 <script lang="ts">
-	import {
-		backendInfo,
-		didFailFetching,
-		loadingBackendInfo,
-		readTextInput,
-		initializeTheme
-	} from '$lib';
+	import { backendInfo, didFailFetching, loadingBackendInfo, readTextInput } from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
 	import ThemeSelector from '$lib/components/ThemeSelector.svelte';
 	import LanguageSelector from '$lib/components/LanguageSelector.svelte';
@@ -13,11 +7,7 @@
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
 
-	// eslint-disable-next-line svelte/valid-prop-names-in-kit-pages
-	let { dispatch } = $props(); // Added to pass to selectors and avoid a Svelte error raised by the IDE
-
 	onMount(async () => {
-		initializeTheme(); // Initialize theme system
 		await new Promise((resolve) => setTimeout(resolve, 500)); // Slight delay to ensure loading state is accurate
 		loadingBackendInfo.set(false);
 	});
@@ -40,10 +30,10 @@
 					<!-- Language and Theme selection -->
 					<div class="mt-4 flex justify-center gap-4">
 						<!-- Language selection -->
-						<LanguageSelector {dispatch} />
+						<LanguageSelector dispatch={null} />
 
 						<!-- Theme selection -->
-						<ThemeSelector {dispatch} />
+						<ThemeSelector dispatch={null} />
 					</div>
 				</small>
 			</h1>
@@ -131,10 +121,10 @@
 					<!-- Language and Theme selection -->
 					<div class="mt-4 flex justify-center gap-4">
 						<!-- Language selection -->
-						<LanguageSelector {dispatch} />
+						<LanguageSelector dispatch={null} />
 
 						<!-- Theme selection -->
-						<ThemeSelector {dispatch} />
+						<ThemeSelector dispatch={null} />
 					</div>
 				</small>
 			</h1>
