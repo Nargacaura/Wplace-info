@@ -79,5 +79,11 @@
 	},
 	"actions": {
 		"reset": "Parse another JSON info"
+	},
+	"theme": {
+		"label": "Theme",
+		"lux": "☀️ Lux",
+		"umbra": "🌙 Umbra",
+		"system": "🖥️ System"
 	}
 }

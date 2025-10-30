@@ -2,6 +2,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* Do not remove this -- permits immediate theme change. If removed, theme will remain as "System" whatever the theme is set to. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
 	font-family: 'Space Mono', monospace, sans-serif;
 }
