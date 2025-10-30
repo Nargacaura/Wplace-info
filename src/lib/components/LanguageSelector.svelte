@@ -16,7 +16,7 @@
 	function handleSelect(lang: string) {
 		setLocalStorageLocale(lang);
 		isOpen = false;
-		dispatch('change', lang);
+		dispatch?.('change', lang);
 	}
 
 	function handleKeydown(event: KeyboardEvent) {

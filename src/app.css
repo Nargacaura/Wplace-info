@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+/* Do not remove this -- permits immediate theme change. If removed, theme will remain as "System" whatever the theme is set to. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 * {

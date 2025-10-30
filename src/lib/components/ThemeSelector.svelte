@@ -17,7 +17,7 @@
 	function handleSelect(theme: Theme) {
 		setLocalStorageTheme(theme);
 		isOpen = false;
-		dispatch('change', theme);
+		dispatch?.('change', theme);
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
