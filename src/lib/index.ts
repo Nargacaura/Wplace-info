@@ -39,6 +39,7 @@ export type BackendInfo = {
 	needsPhoneVerification: boolean;
 	picture?: string;
 	pixelsPainted: number;
+	role?: string;
 	suspensionReason?: string;
 	showLastPixel: boolean;
 	timeoutUntil: string;
