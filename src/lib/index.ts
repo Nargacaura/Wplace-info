@@ -10,7 +10,7 @@ import toast from 'svelte-french-toast';
 export type BackendInfo = {
 	allianceId?: number;
 	allianceRole?: string;
-	banned: boolean;
+	banned?: boolean;
 	charges: {
 		cooldownMs: number;
 		count: number;
@@ -21,6 +21,8 @@ export type BackendInfo = {
 	discordId?: string;
 	droplets: number;
 	equippedFlag?: number;
+	equippedFrameId?: number;
+	equippedFrameUrl?: string;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	experiments?: Record<string, any>;
 	extraColorsBitmap: number;
@@ -61,13 +63,14 @@ export function parseBackendInfo(json: string): BackendInfo {
 	if (typeof data !== 'object' || data === null) throw new Error('Invalid backend info format');
 
 	if (
-		typeof data.banned !== 'boolean' ||
+		(data.banned && typeof data.banned !== 'boolean') ||
 		typeof data.charges !== 'object' ||
 		typeof data.charges.cooldownMs !== 'number' ||
 		typeof data.charges.count !== 'number' ||
 		typeof data.charges.max !== 'number' ||
 		typeof data.droplets !== 'number' ||
 		typeof data.extraColorsBitmap !== 'number' ||
+		typeof data.equippedFrameUrl !== 'string' ||
 		!Array.isArray(data.favoriteLocations) ||
 		typeof data.flagsBitmap !== 'string' ||
 		typeof data.id !== 'number' ||
@@ -78,9 +81,10 @@ export function parseBackendInfo(json: string): BackendInfo {
 		typeof data.needsPhoneVerification !== 'boolean' ||
 		typeof data.pixelsPainted !== 'number' ||
 		typeof data.showLastPixel !== 'boolean' ||
-		typeof data.timeoutUntil !== 'string'
+		typeof data.timeoutUntil !== 'string' ||
+		typeof data.role !== 'string'
 	)
-		throw new Error('Incomplete backend info data');
+		throw new Error(get(_)("errors.fetch-failure"));
 
 	return data;
 }

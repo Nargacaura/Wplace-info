@@ -2,31 +2,21 @@
 	"errors": {
 		"fetch-failure": "Échec de l'analyse de l'objet JSON. Veuillez vous assurer d'avoir copié et collé correctement le JSON complet.",
 		"no-suspension": "Aucune suspension enregistrée pour l’instant. Hourra! :D",
-		"fetch-failure-title": "Impossible de récupérer les informations de Wplace.",
 		"upload-json-manually": "Insérez le texte qui vous est donné sous forme d'objet JSON (les éléments entre accolades, elles-mêmes incluses) ci-dessous."
 	},
-	"loading": {
-		"loading-backend-info": "Chargement des informations du backend..."
-	},
 	"buttons": {
-		"retry": "Réessayer",
 		"login": "Se connecter à Wplace",
-		"change-language": "Changer de langue (FR ⇋ EN)",
 		"upload-json": "Charger le JSON des infos de Wplace",
-		"get-json": "Obtenez vos données JSON"
+		"get-json": "Obtenir vos données JSON"
 	},
 	"footer": {
 		"disclaimer": "Cet outil n'est en aucun cas affilié à Wplace. Son seul but est d’avoir une version lisible du JSON que l’on retrouve dans le backend. Rien n'est stocké à distance, tout est fait sur votre machine.",
 		"made-with": "Codé avec",
 		"in-svelte": "en Svelte",
 		"created-by": "par",
-		"info": {
-			"unicode-orca": "Si vous voyez un carré vide ici, vous n'avez peut-être pas encore Unicode 17. Et oui, j'adore les orques."
-		},
 		"source-code-on": "Code source disponible sur"
 	},
 	"data": {
-		"picture": "Avatar de {name}",
 		"title": "Informations de {name} sur Wplace",
 		"suspension-reason": {
 			"inappropriate-content": "contenu inapproprié (contenu adulte, lien inapproprié, contenu fortement suggestif...)",
@@ -34,6 +24,7 @@
 			"doxxing": "divulgation d'informations privées (adresse, numéro de téléphone...) sans leur consentement",
 			"bot": "utilisation de scripts d'automatisation illégaux",
 			"griefing": "perturbation d'une œuvre qui n'était pas sujette à des actes de malveillance (comme un drapeau de pays/d'orientation sexuelle, un personnage d'une franchise médiatique...)",
+			"multi-accounting": "utilisation de plusieurs comptes",
 			"other": "une raison connue uniquement du rapporteur et des GMs",
 			"unknown": "une raison qui nous échappe"
 		},
@@ -63,11 +54,8 @@
 	},
 	"data_flag_equipped": "A équipé un drapeau?",
 	"boolean": {
-		"yes": "Oui"
-	},
-	"available-in": {
-		"beginning": "Cet outil est disponible en",
-		"ending": "Cliquez sur un drapeau pour changer la langue."
+		"yes": "Oui",
+		"no": "Non"
 	},
 	"placeholders": {
 		"json-input": "Insérez le JSON dedans."
@@ -80,7 +68,6 @@
 		"reset": "Analyser un autre objet JSON"
 	},
 	"theme": {
-		"label": "Thème",
 		"lux": "☀️ Lux",
 		"umbra": "🌙 Umbra",
 		"system": "🖥️ Système"

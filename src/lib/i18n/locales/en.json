@@ -2,16 +2,10 @@
 	"errors": {
 		"fetch-failure": "Failed to parse the JSON object. Please make sure you copied and pasted the full JSON correctly.",
 		"no-suspension": "No recorded suspensions yet. Yippee! :D",
-		"fetch-failure-title": "Unable to fetch information from Wplace.",
 		"upload-json-manually": "Insert the text given to you as a JSON object (the stuff between brackets, themselves included) below."
 	},
-	"loading": {
-		"loading-backend-info": "Loading backend information..."
-	},
 	"buttons": {
-		"retry": "Retry",
 		"login": "Login to Wplace",
-		"change-language": "Change language (FR ⇋ EN)",
 		"upload-json": "Upload Wplace info JSON object",
 		"get-json": "Get your JSON data"
 	},
@@ -20,13 +14,9 @@
 		"made-with": "Coded with",
 		"in-svelte": "in Svelte",
 		"created-by": "by",
-		"info": {
-			"unicode-orca": "If you see a blank square here, you might not have Unicode 17 yet. And yes, I love orcas."
-		},
 		"source-code-on": "Source code available on"
 	},
 	"data": {
-		"picture": "{name}'s profile picture",
 		"title": "{name}'s Wplace info",
 		"suspension-reason": {
 			"inappropriate-content": "inappropriate content (adult content, inappropriate link, highly suggestive content...)",
@@ -34,6 +24,7 @@
 			"doxxing": "releasing one's private information (address, phone number...) without their consent",
 			"bot": "using illegal automation scripts",
 			"griefing": "messing up an artwork that wasn't griefable (such as a country/sexual orientation flag, a character from a media franchise...)",
+			"multi-accounting": "using multiple accounts",
 			"other": "a reason only the reporter and GMs know",
 			"unknown": "an unknown reason"
 		},
@@ -66,10 +57,6 @@
 		"yes": "Yes",
 		"no": "No"
 	},
-	"available-in": {
-		"beginning": "This tool's available in",
-		"ending": "Click on a flag to change the language."
-	},
 	"placeholders": {
 		"json-input": "Insert JSON here."
 	},
@@ -81,7 +68,6 @@
 		"reset": "Parse another JSON info"
 	},
 	"theme": {
-		"label": "Theme",
 		"lux": "☀️ Lux",
 		"umbra": "🌙 Umbra",
 		"system": "🖥️ System"

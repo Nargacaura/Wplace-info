@@ -13,6 +13,8 @@
 		{ value: 'fr', label: '🇫🇷 Français' }
 	];
 
+	const defaultLanguage = { value: 'en', label: '🇬🇧 English' };
+
 	function handleSelect(lang: string) {
 		setLocalStorageLocale(lang);
 		isOpen = false;
@@ -44,7 +46,7 @@
 <div class="relative">
 	<button
 		bind:this={buttonRef}
-		class="flex min-w-[140px] appearance-none items-center justify-between rounded bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:focus:ring-orange-400"
+		class="flex min-w-35 appearance-none items-center justify-between rounded bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:focus:ring-orange-400"
 		onclick={() => (isOpen = !isOpen)}
 		onkeydown={(e) => {
 			if (e.key === 'Enter' || e.key === ' ') {
@@ -57,7 +59,7 @@
 		aria-expanded={isOpen}
 	>
 		<span>
-			{languages.find((lang) => lang.value === $locale)?.label || '🇬🇧 English'}
+			{languages.find((lang) => lang.value === $locale)?.label || defaultLanguage.label}
 		</span>
 		<svg
 			class="h-4 w-4 fill-current transition-transform duration-200 {isOpen ? 'rotate-180' : ''}"

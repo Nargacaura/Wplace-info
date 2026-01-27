@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Fa from './../../node_modules/svelte-fa/dist/fa.svelte';
 	import { backendInfo, didFailFetching, loadingBackendInfo, readTextInput } from '$lib';
 	import WplaceInfo from '$lib/components/WplaceInfo.svelte';
 	import ThemeSelector from '$lib/components/ThemeSelector.svelte';
@@ -6,6 +7,8 @@
 	import { _ } from 'svelte-i18n';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
+	import { faCrow, faHeart, faHorse, faWarning } from '@fortawesome/free-solid-svg-icons';
+	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 	onMount(async () => {
 		await new Promise((resolve) => setTimeout(resolve, 500)); // Slight delay to ensure loading state is accurate
@@ -25,7 +28,7 @@
 	{:else}
 		{#if $didFailFetching}
 			<h1 class="my-8 flex w-full items-center justify-between">
-				<span class="display text-3xl font-bold">🐴 {$_('fetch.title')}</span>
+				<span class="display text-3xl font-bold"><Fa style="display: inline" icon={faHorse} /> {$_('fetch.title')}</span>
 				<small>
 					<!-- Language and Theme selection -->
 					<div class="mt-4 flex justify-center gap-4">
@@ -57,7 +60,7 @@
 				rel="noopener noreferrer"
 				class="inline-block rounded bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600 dark:bg-orange-700 dark:hover:bg-red-600"
 			>
-				{$_('buttons.get-json')} 🐴
+				{$_('buttons.get-json')} <Fa style="display: inline" icon={faHorse} />
 			</a>
 			<br />
 
@@ -137,13 +140,14 @@
 		>
 			<!-- Disclaimer of non-affiliation -->
 			<p class="text-center text-xl text-red-500">
-				⚠️ {$_('footer.disclaimer')}
+				<Fa style="display: inline" icon={faWarning} /> {$_('footer.disclaimer')}
 			</p>
 
 			<p class="mt-4 text-center text-gray-600 dark:text-gray-300">
 				<!-- Author -->
 				<small class="text-md block text-center text-gray-400 dark:text-gray-500">
-					{$_('footer.made-with')} ❤️ & 🐴🐴 {$_('footer.in-svelte')}
+					{$_('footer.made-with')} <Fa style="display: inline" icon={faHeart} /> &
+					<Fa style="display: inline" icon={faHorse} /><Fa style="display: inline" icon={faHorse} /> {$_('footer.in-svelte')}
 					{$_('footer.created-by')}
 					<a
 						href="https://nargacaura.github.io"
@@ -151,8 +155,7 @@
 						rel="noopener noreferrer"
 						class="text-blue-500 underline hover:text-blue-600 dark:text-orange-400 dark:hover:text-red-600"
 					>
-						Pagos
-						<span title={$_('footer.info.unicode-orca')}>🫍</span>
+						Pagos <Fa style="display: inline" icon={faCrow} />
 					</a>.
 					{$_('footer.source-code-on')}
 					<a
@@ -161,7 +164,7 @@
 						rel="noopener noreferrer"
 						class="text-blue-500 underline hover:text-blue-600 dark:text-orange-400 dark:hover:text-red-600"
 					>
-						GitHub
+						GitHub <Fa style="display: inline" icon={faGithub} />
 					</a>.
 				</small>
 			</p>
