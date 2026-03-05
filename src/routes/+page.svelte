@@ -7,7 +7,7 @@
 	import { _ } from 'svelte-i18n';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
-	import { faCrow, faHeart, faHorse, faWarning } from '@fortawesome/free-solid-svg-icons';
+	import { faHeart, faHorse, faWarning } from '@fortawesome/free-solid-svg-icons';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 	onMount(async () => {
@@ -150,12 +150,12 @@
 					<Fa style="display: inline" icon={faHorse} /><Fa style="display: inline" icon={faHorse} /> {$_('footer.in-svelte')}
 					{$_('footer.created-by')}
 					<a
-						href="https://nargacaura.github.io"
+						href="https://www.pagotortoi.se"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-blue-500 underline hover:text-blue-600 dark:text-orange-400 dark:hover:text-red-600"
 					>
-						Pagos <Fa style="display: inline" icon={faCrow} />
+						Pagos 🦚
 					</a>.
 					{$_('footer.source-code-on')}
 					<a
